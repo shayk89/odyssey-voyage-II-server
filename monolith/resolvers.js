@@ -426,7 +426,7 @@ const resolvers = {
       return dataSources.bookingsDb.getHumanReadableDate(checkOutDate);
     },
     guest: ({ guestId }) => {
-      return {id:guestId};
+      return dataSources.accountsAPI.getUser(guestId);
     },
     totalPrice: async (
       { listingId, checkInDate, checkOutDate },
@@ -453,7 +453,7 @@ const resolvers = {
   Review: {
     author: (review) => {
       let role = '';
-      if (review.type === 'LISTING' || review.targetType=== 'HOST'){
+      if (review.targetType === 'LISTING' || review.targetType=== 'HOST'){
         role = 'Guest';
       }else{
         role = 'Host';

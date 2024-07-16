@@ -129,21 +129,21 @@ type UpdateProfileResponse implements MutationResponse {
 type Listing @key(fields:"id") {
   id: ID!
   "The listing's title"
-  title: String!
+  title: String! #listings subgraph
   "The listing's description"
-  description: String!
+  description: String! #listings subgraph
   "The thumbnail image for the listing"
-  photoThumbnail: String!
+  photoThumbnail: String! #listings subgraph
   "The number of beds available"
-  numOfBeds: Int!
+  numOfBeds: Int! #listings subgraph
   "The cost per night"
-  costPerNight: Float!
+  costPerNight: Float! #listings subgraph
   "The location type of the listing"
-  locationType: LocationType!
+  locationType: LocationType! #listings subgraph
   "Owner of the listing"
   host: Host!
   "The amenities available for this listing"
-  amenities: [Amenity]!
+  amenities: [Amenity]
   "The list of bookings for a listing"
   bookings: [Booking]!
   "The number of current and upcoming bookings for a listing"
